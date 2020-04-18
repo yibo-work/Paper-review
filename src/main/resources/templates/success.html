@@ -22,21 +22,16 @@
     layui.use(['layer'], function () {
         var fileRatio = [[${fileRatio}]];
         var path = [[${returnPath}]];
-        var IS_PASS = [[${IS_PASS}]];
 
         //如果通过了就直接保存数据库，不需要下载返回结果报告
 
-        if (IS_PASS) {
+        var layer = layui.layer;
+        layer.confirm("论文没有通过，查重率是：" + fileRatio + "，是否下载论文检测报告？", function () {
+            window.open('/paper/downReturnReport?path=' + path);
             top.location.href = "/index";
-        } else {
-            var layer = layui.layer;
-            layer.confirm("论文没有通过，查重率是：" + fileRatio + "，是否下载论文检测报告？", function () {
-                window.open('/paper/downReturnReport?path=' + path);
-                top.location.href = "/index";
-            }, function () {
-                top.location.href = "/index";
-            });
-        }
+        }, function () {
+            top.location.href = "/index";
+        });
     });
 
 </script>

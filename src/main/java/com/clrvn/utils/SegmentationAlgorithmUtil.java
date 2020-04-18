@@ -30,12 +30,12 @@ public class SegmentationAlgorithmUtil {
      */
     public static List<String> segmentationAlgorithm(String text) {
         List<String> stringList = new ArrayList<>();
-        //这里用到的是所有的11种算法加在一起
+       /* //这里用到的是所有的11种算法加在一起
         for (SegmentationAlgorithm segmentationAlgorithm : SegmentationAlgorithm.values()) {
             stringList.addAll(seg(text, segmentationAlgorithm));
-        }
+        }*/
         //如果需要指定一种分词方法
-//         stringList = seg(text, SegmentationAlgorithm.MaxNgramScore);
+         stringList = seg(text, SegmentationAlgorithm.MinimumMatching );
         return stringList;
     }
 }
