@@ -184,7 +184,8 @@ public class PaperController {
                 model.addAttribute("IS_PASS", true);
             }
             model.addAttribute("returnPath", returnPath);
-            model.addAttribute("fileRatio", ratio > 1 ? "100%" : ratio * 100 + "%");
+            model.addAttribute("fileRatio", String.format("%.2f", ratio * 100) + "%");
+
         } catch (Exception e) {
             e.printStackTrace();
             throw new PaperException(ResultFailureEnum.UPLOAD_PAPER_FAILURE);

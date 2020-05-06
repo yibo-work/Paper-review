@@ -10,6 +10,12 @@ spring:
   resources:
     #静态资源地址
     static-locations: classpath:/static/,classpath:/static/upload/
+  # 文件上传大小配置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
     # orm框架配置
   jpa:
     show-sql: true
